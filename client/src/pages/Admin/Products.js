@@ -6,7 +6,6 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 const Products = () => {
   const [products, setProducts] = useState([]);
-
   //getall products
   const getAllProducts = async () => {
     try {
@@ -29,7 +28,7 @@ const Products = () => {
           <AdminMenu />
         </div>
         <div className="col-md-9 ">
-          <h1 className="text-center">All Products List</h1>
+          <h1 className="text-center">My Products List</h1>
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
               <Link

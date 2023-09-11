@@ -56,10 +56,10 @@ const ProductDetails = () => {
           <h6>Name : {product.name}</h6>
           <h6>Description : {product.description}</h6>
           <h6>
-            Price :
-            {product?.price?.toLocaleString("en-US", {
+            Price:
+            {product?.price?.toLocaleString("en-IN", {
               style: "currency",
-              currency: "USD",
+              currency: "INR",
             })}
           </h6>
           <h6>Category : {product?.category?.name}</h6>
@@ -84,14 +84,14 @@ const ProductDetails = () => {
                 <div className="card-name-price">
                   <h5 className="card-title">{p.name}</h5>
                   <h5 className="card-title card-price">
-                    {p.price.toLocaleString("en-US", {
+                    {p.price.toLocaleString("en-IN", {
                       style: "currency",
-                      currency: "USD",
+                      currency: "INR",
                     })}
                   </h5>
                 </div>
                 <p className="card-text ">
-                  {p.description.substring(0, 60)}...
+                  {p.description.substring(0, 20)}...
                 </p>
                 <div className="card-name-price">
                   <button

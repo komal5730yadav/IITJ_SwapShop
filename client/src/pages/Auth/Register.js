@@ -11,6 +11,8 @@ const Register = () => {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [answer, setAnswer] = useState("");
+  const [role, setRole] = useState("");
+
   const navigate = useNavigate();
 
   // form function
@@ -24,6 +26,7 @@ const Register = () => {
         phone,
         address,
         answer,
+        role,
       });
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
@@ -38,7 +41,7 @@ const Register = () => {
   };
 
   return (
-    <Layout title="Register - Ecommer App">
+    <Layout title="Register - IITJ SwapShop">
       <div className="form-container" style={{ minHeight: "90vh" }}>
         <form onSubmit={handleSubmit}>
           <h4 className="title">REGISTER FORM</h4>
@@ -95,6 +98,17 @@ const Register = () => {
               className="form-control"
               id="exampleInputEmail1"
               placeholder="Enter Your Address"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="Number"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              className="form-control"
+              id="exampleInputEmail1"
+              placeholder="Enter Your Role, Buyer:0||Seller:1"
               required
             />
           </div>

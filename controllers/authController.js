@@ -6,7 +6,7 @@ import JWT from "jsonwebtoken";
 
 export const registerController = async (req, res) => {
   try {
-    const { name, email, password, phone, address, answer } = req.body;
+    const { name, email, password, phone, address, answer, role } = req.body;
     //validations
     if (!name) {
       return res.send({ error: "Name is Required" });
@@ -25,6 +25,11 @@ export const registerController = async (req, res) => {
     }
     if (!answer) {
       return res.send({ message: "Answer is Required" });
+    }
+    if (!role) {
+      return res.send({
+        message: "Role is Required for buyer:0 || for seller:1",
+      });
     }
     //check user
     const exisitingUser = await userModel.findOne({ email });
@@ -45,6 +50,7 @@ export const registerController = async (req, res) => {
       address,
       password: hashedPassword,
       answer,
+      role,
     }).save();
 
     res.status(201).send({
@@ -56,7 +62,7 @@ export const registerController = async (req, res) => {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Errro in Registeration",
+      message: "Error in Registeration",
       error,
     });
   }
@@ -216,7 +222,7 @@ export const getOrdersController = async (req, res) => {
     });
   }
 };
-//orders
+//All orders
 export const getAllOrdersController = async (req, res) => {
   try {
     const orders = await orderModel
