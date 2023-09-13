@@ -1,81 +1,101 @@
+/* Banner */
 .banner-img {
-  margin-top: 60px;
+  margin-top: 30px;
 }
 
+/* Heading Styles */
 .home-page h1 {
-  color: gray;
+  color: #333;
   font-family: "Playfair Display", serif;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
+/* Product Grid */
 .home-page {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between; /* Distribute columns evenly */
 }
+
 .home-page .card {
-  background-color: rgba(128, 128, 128, 0.097);
-  width: 18rem;
+  background-color: #f9f9f9;
+  width: calc(33.33% - 20px); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; 
+  transition: transform 0.3s ease;
+  flex: 0 0 calc(33.33% - 20px); 
 }
+
+.home-page .card:hover {
+  transform: scale(1.05);
+}
+
 .home-page .card-name-price {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column; 
+  padding: 10px;
+}
+
+.home-page .card-name-price h2 {
+  color: #333;
+  font-size: 18px;
 }
 
 .home-page .card-price {
-  color: green;
+  color: #00a000;
   font-weight: bold;
-}
-.home-page button {
-  border-radius: 0;
-  width: 100%;
-  border-top-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 16px;
 }
 
 .home-page .card-text {
-  color: rgb(90, 89, 89);
+  color: #777;
+  font-size: 14px;
+  padding: 10px;
 }
 
-.home-page .card img:hover {
-  transform: scale(0.9);
-}
-
-.home-page .card-img-top {
-  height: 300px !important;
-}
-/* ==================
-filters
-============== */
-.filters h4 {
-  margin-top: 100px;
-  color: gray !important;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.337);
-}
-
-.ant-checkbox-wrapper:first-of-type {
-  margin-left: 8px;
-}
-
-.ant-checkbox-wrapper {
-  margin: 2px;
-}
-.ant-radio-wrapper {
-  margin-bottom: 5px !important;
-  margin-left: 10px;
-}
-
-.filters button {
-  background-color: black;
-  width: 100%;
+/* Buttons */
+.home-page button {
+  background-color: #000;
+  color: #fff;
   border: none;
-  border-radius: 0;
-  margin-top: 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
 }
 
+.home-page button:hover {
+  background-color: #333;
+}
+
+/* Filters */
+.filters {
+  margin-top: 40px;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.filters h4 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Load More Button */
 .loadmore {
-  color: green;
+  background-color: #00a000;
+  color: #fff;
   font-weight: bold;
-  font-size: 20px !important;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.loadmore:hover {
+  background-color: #008000;
 }

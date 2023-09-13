@@ -36,3 +36,23 @@ export const isAdmin = async (req, res, next) => {
     });
   }
 };
+export const isSameAdmin = async (req, res, next) => {
+  try {
+    const productCreatorId = req.body.productCreatorId; // Assuming this is how you pass the creator ID
+    if (req.user._id.toString() === productCreatorId.toString()) {
+      next(); // The user is the same admin who created the product
+    } else {
+      return res.status(401).send({
+        success: false,
+        message: "You are not authorized to edit this product.",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(401).send({
+      success: false,
+      error,
+      message: "Error in isSameAdmin middleware",
+    });
+  }
+};
